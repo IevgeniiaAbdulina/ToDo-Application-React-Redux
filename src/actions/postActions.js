@@ -10,15 +10,15 @@ const axiosInstance = axios.create({
 });
 
 export const fetchTasks = () => dispatch => {
-  console.log("fetchTasks called here");
   axiosInstance
     .get("/api/tasks")
-    .then(tasks =>
+    .then(tasks => {
+      console.log("show all tasks: ", tasks);
       dispatch({
         type: FETCH_TASKS,
         payload: tasks
-      })
-    )
+      });
+    })
     .catch(err => {
       console.log(err);
     });

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchTasks } from "../actions/postActions";
+import DeleteTask from "./DeleteTask";
 
 // const axiosInstance = axios.create({
 //   baseURL: "/api/",
@@ -23,7 +24,7 @@ class Tasks extends Component {
     this.props.fetchTasks();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
       this.props.tasks.unshift(nextProps.newPost);
     }
@@ -99,7 +100,10 @@ class Tasks extends Component {
 
     const postTasks = this.props.tasks.map(task => (
       <div key={task._id}>
-        <h5>{task.name}</h5>
+        <h5>
+          {task.name}
+          {<DeleteTask />}
+        </h5>
       </div>
     ));
 
