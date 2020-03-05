@@ -14,10 +14,11 @@ export default (state = { INITIAL_STATE }, action) => {
     case SIGN_OUT:
       return {
         ...state,
-        isSignOut: false
+        isSignedIn: false
       };
 
-    default:
-      return state;
+    default: {
+      return { ...state };
+    }
   }
 };

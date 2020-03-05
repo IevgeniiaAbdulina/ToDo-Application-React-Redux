@@ -8,9 +8,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_TASKS:
-      console.log("reducer");
-      console.log("what is - action.type", action.type);
-      console.log("what is -items: action.payload", action.payload);
+      console.log("postRRReducer");
 
       return {
         ...state,
@@ -20,7 +18,7 @@ export default function(state = initialState, action) {
     case NEW_TASK:
       return {
         ...state,
-        item: action.payload.data // item: action.payload ????
+        item: action.payload.data
       };
 
     default:

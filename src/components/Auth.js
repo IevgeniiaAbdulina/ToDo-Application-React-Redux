@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { signIn, signOut } from "../actions";
 import axios from "axios";
-import { signIn, signOut } from "../actions/index";
 
 class Auth extends Component {
   componentDidMount() {
@@ -11,10 +11,13 @@ class Auth extends Component {
         password: "123456"
       })
       .then(res => {
-        console.log("here is LOGIN: ", res.data.login);
+        console.log("Response fro database here is LOGIN: ", res.data.login);
+        console.log("what is isSignIn here: ", this.props.isSignedIn);
 
-        this.onAuthChange(this.auth.isSignedIn(res.data.token));
-        this.auth.isSignedIn.listen(this.onAuthChange);
+        // this.onAuthChange(this.auth.isSignedIn.get());
+        // this.auth.isSignedIn.listen(this.onAuthChange);
+        this.onAuthChange(this.props.isSignedIn.get());
+        this.props.isSignedIn.listen(this.onAuthChange);
       })
       .catch(err => {
         console.log(err);
@@ -30,11 +33,12 @@ class Auth extends Component {
   };
 
   onSignInClick = () => {
-    this.auth.signIn();
+    console.log("onSignInClick - this.props.signIN is:", this.props.signIn());
+    this.props.signIn();
   };
 
   onSignOutClick = () => {
-    this.auth.signOut();
+    this.props.signOut();
   };
 
   renderAuthButton() {
@@ -56,8 +60,12 @@ class Auth extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { isSignedIn: state.auth.isSignedIn };
-};
+// const mapStateToProps = state => {
+//   return { isSignedIn: state.auth.isSignedIn };
+// };
+
+const mapStateToProps = state => ({
+  isSignedIn: state.auth.isSignedIn
+});
 
 export default connect(mapStateToProps, { signIn, signOut })(Auth);
