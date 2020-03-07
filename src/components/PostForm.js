@@ -17,7 +17,7 @@ class PostForm extends Component {
     super(props);
     this.state = {
       name: "",
-      listID: "5e373d650b37b9001790c2af"
+      listID: "5e36f99ac50f2900175b7be5"
     };
 
     this.onChange = this.onChange.bind(this);
