@@ -2,8 +2,11 @@ import React from "react";
 import "./App.css";
 import { Provider } from "react-redux";
 
-import PostForm from "./components/PostForm";
+import Lists from "./components/Lists";
+import PostList from "./components/PostList";
 import Tasks from "./components/Tasks";
+import PostForm from "./components/PostForm";
+
 import Auth from "./components/Auth";
 
 import store from "./store";
@@ -13,9 +16,12 @@ function App() {
     <Provider store={store}>
       <div>
         <h3>ToDo application with React and Redux</h3>
-        <PostForm />
         <Auth />
         <hr />
+        <PostList />
+        <Lists />
+        <hr />
+        <PostForm />
         <Tasks />
       </div>
     </Provider>

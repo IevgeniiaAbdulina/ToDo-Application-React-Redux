@@ -109,9 +109,6 @@ class Tasks extends Component {
 
     return (
       <div>
-        <h3>Lists:</h3>
-        {/* {postLists} */}
-
         <h3>Tasks:</h3>
         {postTasks}
       </div>

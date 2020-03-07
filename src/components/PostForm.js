@@ -55,7 +55,7 @@ class PostForm extends Component {
   render() {
     return (
       <div>
-        <h1>Post Tasks</h1>
+        <h3>Post Tasks</h3>
         <form onSubmit={this.onSubmit}>
           <div>
             <label>Task Name: </label>
