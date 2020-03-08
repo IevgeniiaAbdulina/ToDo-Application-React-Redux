@@ -3,7 +3,7 @@ import "./App.css";
 import { Provider } from "react-redux";
 
 import Lists from "./components/Lists";
-import PostList from "./components/PostList";
+import ListForm from "./components/ListForm";
 import Tasks from "./components/Tasks";
 import PostForm from "./components/PostForm";
 
@@ -18,7 +18,7 @@ function App() {
         <h3>ToDo application with React and Redux</h3>
         <Auth />
         <hr />
-        <PostList />
+        <ListForm />
         <Lists />
         <hr />
         <PostForm />

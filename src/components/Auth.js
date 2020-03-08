@@ -12,7 +12,7 @@ class Auth extends Component {
       })
       .then(res => {
         console.log("Response fro database here is LOGIN: ", res.data.login);
-        console.log("what is isSignIn here: ", this.props.isSignedIn);
+        // console.log("what is isSignIn here: ", this.props.isSignedIn);
 
         // this.onAuthChange(this.auth.isSignedIn.get());
         // this.auth.isSignedIn.listen(this.onAuthChange);

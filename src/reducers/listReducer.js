@@ -16,7 +16,8 @@ export default function(state = initialListState, action) {
     case NEW_LIST:
       return {
         ...state,
-        list: action.payload.data
+        // list: action.payload.data
+        list: action.payload
       };
 
     default:

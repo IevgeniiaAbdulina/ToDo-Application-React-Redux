@@ -1,4 +1,4 @@
-import { FETCH_LISTS } from "./types";
+import { FETCH_LISTS, NEW_LIST } from "./types";
 
 import axios from "axios";
 const axiosInstance = axios.create({
@@ -17,6 +17,24 @@ export const fetchLists = () => dispatch => {
       dispatch({
         type: FETCH_LISTS,
         payload: lists
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const createList = listData => dispatch => {
+  console.log("create new list here", listData);
+
+  axiosInstance
+    .post("/api/lists", { listData })
+    .then(list => {
+      console.log("list is:", list);
+
+      dispatch({
+        type: NEW_LIST,
+        payload: list
       });
     })
     .catch(err => {
