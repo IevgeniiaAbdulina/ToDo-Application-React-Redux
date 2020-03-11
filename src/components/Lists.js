@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchLists } from "../actions/listActions";
+import DeleteList from "./DeleteList";
 
 class Lists extends Component {
   UNSAFE_componentWillMount() {
@@ -18,7 +19,10 @@ class Lists extends Component {
 
   render() {
     const postLists = this.props.lists.map(list => (
-      <div key={list._id}>{list.name}</div>
+      <div key={list._id}>
+        {list.name}
+        <DeleteList />
+      </div>
     ));
 
     return (

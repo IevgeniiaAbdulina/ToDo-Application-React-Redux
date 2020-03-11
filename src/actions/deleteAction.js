@@ -1,4 +1,4 @@
-import { DELETE_TASK } from "./types";
+import { DELETE_TASK, DELETE_LIST } from "./types";
 
 import axios from "axios";
 const axiosInstance = axios.create({
@@ -10,12 +10,11 @@ const axiosInstance = axios.create({
 });
 
 export const deleteTask = () => dispatch => {
-  console.log("Delete task here");
+  console.log("Delete task");
 
   axiosInstance
     // .delete(`/api/tasks/${taskId}`)
-    .delete("/api/tasks/5e5e2288a7533c00175135e8")
-
+    .delete("/api/tasks/5e63ff19753f3d001770a122")
     .then(res => {
       console.log("RESponse: ", res);
     })
@@ -27,5 +26,25 @@ export const deleteTask = () => dispatch => {
     })
     .catch(err => {
       console.log(err);
+    });
+};
+
+export const deleteList = () => dispatch => {
+  console.log("DELETE LISt");
+
+  axiosInstance
+    // .delete(`/api/lists/${listID}`)
+    .delete("/api/lists/5e36f99ac50f2900175b7be5")
+    .then(res => {
+      console.log("Delete list", res);
+    })
+    .then(list => {
+      dispatch({
+        type: DELETE_LIST,
+        payload: list
+      });
+    })
+    .catch(err => {
+      console.log("err");
     });
 };
