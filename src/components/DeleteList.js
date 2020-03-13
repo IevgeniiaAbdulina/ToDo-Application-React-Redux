@@ -2,20 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { deleteList } from "../actions/deleteAction";
+import { deleteList } from "../actions/listActions";
 
 class DeleteList extends Component {
   onDeleteListButtonClick = () => {
     console.log("Delete list button clicked");
-    this.props.deleteList();
+    this.props.deleteList(this.props.listID);
   };
 
   render() {
-    return (
-      <div>
-        <button onClick={this.onDeleteListButtonClick}>Delete list</button>
-      </div>
-    );
+    return <button onClick={this.onDeleteListButtonClick}>Delete list</button>;
   }
 }
 

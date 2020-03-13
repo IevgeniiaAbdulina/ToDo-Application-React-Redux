@@ -1,4 +1,4 @@
-import { FETCH_TASKS, NEW_TASK } from "../actions/types";
+import { FETCH_TASKS, NEW_TASK, DELETE_TASK } from "../actions/types";
 
 const initialState = {
   items: [],
@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
+  console.log("action:", action);
   switch (action.type) {
     case FETCH_TASKS:
       return {
@@ -16,7 +17,13 @@ export default function(state = initialState, action) {
     case NEW_TASK:
       return {
         ...state,
-        item: action.payload.data
+        item: action.payload
+      };
+
+    case DELETE_TASK:
+      return {
+        ...state,
+        item: action.payload
       };
 
     default:

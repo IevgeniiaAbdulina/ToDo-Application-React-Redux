@@ -1,4 +1,4 @@
-import { FETCH_LISTS, NEW_LIST } from "../actions/types";
+import { FETCH_LISTS, NEW_LIST, DELETE_LIST } from "../actions/types";
 
 const initialListState = {
   lists: [],
@@ -16,7 +16,12 @@ export default function(state = initialListState, action) {
     case NEW_LIST:
       return {
         ...state,
-        // list: action.payload.data
+        list: action.payload
+      };
+
+    case DELETE_LIST:
+      return {
+        ...state,
         list: action.payload
       };
 

@@ -2,20 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { deleteTask } from "../actions/deleteAction";
+import { deleteTask } from "../actions/taskActions";
 
 class DeleteTask extends Component {
   onDeleteButtonClick = () => {
     console.log("Delete button clicked");
-    this.props.deleteTask();
+    this.props.deleteTask(this.props.taskID);
   };
 
   render() {
-    return (
-      <div>
-        <button onClick={this.onDeleteButtonClick}>Delete</button>
-      </div>
-    );
+    return <button onClick={this.onDeleteButtonClick}>Delete</button>;
   }
 }
 

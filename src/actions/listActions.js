@@ -1,4 +1,4 @@
-import { FETCH_LISTS, NEW_LIST } from "./types";
+import { FETCH_LISTS, NEW_LIST, DELETE_LIST } from "./types";
 
 import axios from "axios";
 const axiosInstance = axios.create({
@@ -14,6 +14,7 @@ export const fetchLists = () => dispatch => {
     .get("/api/lists")
     .then(lists => {
       console.log("GET ALL LISTS", lists);
+      localStorage.setItem("listID", lists.data[0]._id);
       dispatch({
         type: FETCH_LISTS,
         payload: lists
@@ -25,15 +26,29 @@ export const fetchLists = () => dispatch => {
 };
 
 export const createList = listData => dispatch => {
-  console.log("create new list here", listData);
-
   axiosInstance
-    .post("/api/lists", { listData })
+    .post("/api/lists", {
+      name: listData.name
+    })
     .then(list => {
-      console.log("list is:", list);
-
+      console.log("CREATE NEW LIST");
       dispatch({
         type: NEW_LIST,
+        payload: list
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const deleteList = listID => dispatch => {
+  axiosInstance
+    .delete("/api/lists/" + listID)
+    .then(list => {
+      console.log("DELETE LIST");
+      dispatch({
+        type: DELETE_LIST,
         payload: list
       });
     })

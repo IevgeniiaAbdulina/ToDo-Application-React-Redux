@@ -16,8 +16,8 @@ class Auth extends Component {
 
         // this.onAuthChange(this.auth.isSignedIn.get());
         // this.auth.isSignedIn.listen(this.onAuthChange);
-        this.onAuthChange(this.props.isSignedIn.get());
-        this.props.isSignedIn.listen(this.onAuthChange);
+        // this.onAuthChange(this.props.isSignedIn.get()); // unlock!
+        // this.props.isSignedIn.listen(this.onAuthChange); // unlock!
       })
       .catch(err => {
         console.log(err);

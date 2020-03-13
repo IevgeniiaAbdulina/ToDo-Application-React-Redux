@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import postReducer from "./postReducer";
-import authReducer from "./authReducer";
 import listReducer from "./listReducer";
+import taskReducer from "./taskReducer";
+import authReducer from "./authReducer";
 
 export default combineReducers({
-  tasks: postReducer,
-  auth: authReducer,
-  lists: listReducer
+  lists: listReducer,
+  tasks: taskReducer,
+  auth: authReducer
 });

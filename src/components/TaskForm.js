@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createList } from "../actions/listActions";
+import { createTask } from "../actions/taskActions";
 
-class ListForm extends Component {
+class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,10 +19,7 @@ class ListForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const list = {
-      name: this.state.name
-    };
-    this.props.createList(list);
+    this.props.createTask(this.state);
     this.setState({
       name: ""
     });
@@ -31,15 +28,15 @@ class ListForm extends Component {
   render() {
     return (
       <div>
-        <h3>Post list</h3>
+        <h3>Post Tasks</h3>
         <form onSubmit={this.onSubmit}>
           <div>
-            <label>List Name: </label>
+            <label>Task Name: </label>
             <br />
             <textarea
               name="name"
-              value={this.state.name}
               onChange={this.onChange}
+              value={this.state.name}
             />
           </div>
           <br />
@@ -50,8 +47,8 @@ class ListForm extends Component {
   }
 }
 
-ListForm.propTypes = {
-  createList: PropTypes.func.isRequired
+TaskForm.propTypes = {
+  createTask: PropTypes.func.isRequired
 };
 
-export default connect(null, { createList })(ListForm);
+export default connect(null, { createTask })(TaskForm);
