@@ -12,6 +12,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import ListDetails from "./components/projects/ListDetails";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import CreateList from "./components/projects/CreateList";
 
 // import store from "./store"; // moved to src/index.js
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/project/:id" component={ListDetails} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/create" component={CreateList} />
         </Switch>
         {/* <Auth /> */}
         <hr />
