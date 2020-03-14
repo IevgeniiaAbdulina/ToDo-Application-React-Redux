@@ -33,7 +33,7 @@ export const fetchTasks = () => dispatch => {
 };
 
 export const createTask = taskData => dispatch => {
-  console.log(taskData);
+  console.log("TASKDATA CREATE", taskData);
   axiosInstance
     .post("/api/tasks", {
       name: taskData.name,
