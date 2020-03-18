@@ -1,9 +1,9 @@
 import React from "react";
 
-const ListSummary = () => {
+const ListSummary = ({ project }) => {
   return (
     <div>
-      <span>Project Title 1</span>
+      <span>{project.title}</span>
       <p>Posted by NN</p>
       <p>Data 12 Nov</p>
       <hr />

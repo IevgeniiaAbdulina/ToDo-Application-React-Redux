@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createProject } from "../../actions/projectActions";
 
 class CreateList extends Component {
   state = {
@@ -13,7 +15,8 @@ class CreateList extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.createProject(this.state);
   };
 
   render() {
@@ -37,4 +40,10 @@ class CreateList extends Component {
   }
 }
 
-export default CreateList;
+const mapDispatchToProps = dispatch => {
+  return {
+    createProject: project => dispatch(createProject(project))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CreateList);
