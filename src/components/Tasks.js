@@ -25,24 +25,40 @@ class Tasks extends Component {
     //     </div>
     //   );
     // });
-    const taskList = this.props.tasks;
-    const postTasks = taskList.length ? (
-      taskList.map(task => {
-        return (
+
+    const allTasks = this.props.tasks;
+    const taskList = allTasks.length ? (
+      allTasks.map(task =>
+        task._id ? (
           <div key={task._id}>
             {task.name} <DeleteTask taskID={task._id} />
           </div>
-        );
-      })
+        ) : null
+      )
     ) : (
       <div>No tasks yet</div>
     );
+
+    // const taskList = this.props.tasks;
+    // const postTasks = taskList.length ? (
+    //   taskList.map(task => {
+    //     return (
+    //       <>
+    //         <div key={task._id}>{task.name}</div>
+    //         <DeleteTask taskID={task._id} />
+    //       </>
+    //     );
+    //   })
+    // ) : (
+    //   <div>No tasks yet</div>
+    // );
 
     return (
       <div>
         <TaskForm />
         <h3>Tasks:</h3>
-        {postTasks}
+        {/* {postTasks} */}
+        {taskList}
       </div>
     );
   }

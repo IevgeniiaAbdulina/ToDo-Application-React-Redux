@@ -6,7 +6,7 @@ import { deleteTask } from "../actions/taskActions";
 
 class DeleteTask extends Component {
   onDeleteButtonClick = () => {
-    console.log("Delete button clicked");
+    console.log("Delete button clicked", this.props.taskID);
     this.props.deleteTask(this.props.taskID);
   };
 
